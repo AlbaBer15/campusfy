@@ -1,0 +1,15 @@
+.card { background:#161a22; border:1px solid #1f2530; border-radius:12px; padding:16px; color:#eaeef7; }
+.muted { color:#a6b0c3; }
+
+.toolbar { display:flex; gap:8px; align-items:center; margin:10px 0; }
+.toolbar input { flex:1; padding:8px; border-radius:8px; border:1px solid #2a3242; background:#0f1115; color:#eaeef7; }
+
+.list { list-style:none; padding:0; margin:12px 0 0; display:grid; gap:8px; }
+.row { display:flex; justify-content:space-between; align-items:center; padding:10px; border:1px solid #2a3242; border-radius:10px; background:#151a26; }
+.row.liked { border-color:#2e7d32; background:#132018; }
+.row.hidden { display:none; }
+
+.meta { display:flex; flex-direction:column; gap:2px; }
+.actions { display:flex; gap:8px; }
+.actions button { padding:6px 10px; border-radius:8px; border:1px solid #2a3242; background:#0f1115; color:#eaeef7; cursor:pointer; }
+.actions button:hover { filter: brightness(1.1); }

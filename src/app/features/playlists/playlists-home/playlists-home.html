@@ -1,0 +1,50 @@
+<section class="card">
+  <!-- Interpolación -->
+  <h1>{{ title }}</h1>
+  <p class="muted">Gestiona tus canciones favoritas</p>
+
+  <!-- Property binding a src -->
+  <img *ngIf="coverUrl" [src]="coverUrl" alt="Cover" width="140" style="border-radius:8px; margin:8px 0;">
+
+  <h2>{{ playlistName }}</h2>
+
+  <!-- Two-way binding + Event binding -->
+  <div class="toolbar">
+    <input
+      [(ngModel)]="newTrack"
+      (keyup)="addTrackOnEnter($event)"
+      placeholder="Añadir canción (Enter para guardar)">
+    <!-- Property binding a disabled -->
+    <button (click)="addTrack()" [disabled]="!newTrack.trim()">➕ Añadir</button>
+  </div>
+
+  <!-- Filtro (two-way) -->
+  <div class="toolbar">
+    <input [(ngModel)]="filter" placeholder="Filtrar por título o artista">
+    <span class="muted" *ngIf="filter">Filtro activo: "{{ filter }}"</span>
+  </div>
+
+  <!-- Estado vacío (ngIf) -->
+  <p *ngIf="tracks.length === 0" class="muted">
+    No hay canciones todavía. Añade la primera ☝️
+  </p>
+
+  <!-- Listado (ngFor) + ngClass + botones (event binding) -->
+  <ul class="list" *ngIf="tracks.length > 0">
+    <li
+      class="row"
+      *ngFor="let t of tracks; let i = index"
+      [ngClass]="{ liked: t.liked, hidden: filter && !(t.title.toLowerCase().includes(filter.toLowerCase()) || t.artist.toLowerCase().includes(filter.toLowerCase())) }"
+    >
+      <div class="meta">
+        <strong>{{ t.title }}</strong>
+        <span class="muted">{{ t.artist }}</span>
+      </div>
+
+      <div class="actions">
+        <button (click)="toggleLike(i)">{{ t.liked ? '💚 Unlike' : '🤍 Like' }}</button>
+        <button (click)="removeTrack(i)">🗑️ Quitar</button>
+      </div>
+    </li>
+  </ul>
+</section>

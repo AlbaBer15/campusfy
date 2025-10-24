@@ -1,7 +1,17 @@
 <section class="card">
   <h1>Library</h1>
-  <p class="muted">
-    Explora artistas, álbumes y canciones. En las siguientes unidades iremos
-    añadiendo componentes, servicios, rutas y formularios.
-  </p>
+  <p class="muted">Explora y añade canciones a tus playlists</p>
+
+  <div style="display:grid; gap:10px; margin-top:12px;">
+    <app-track-card
+      *ngFor="let t of tracks"
+      [title]="t.title"
+      [artist]="t.artist"
+      [durationSec]="t.durationSec"
+      [liked]="t.liked"
+      (added)="onAddFromCard($event)">
+    </app-track-card>
+  </div>
+
+  <p class="muted" *ngIf="lastAdded">Último añadido: {{ lastAdded }}</p>
 </section>

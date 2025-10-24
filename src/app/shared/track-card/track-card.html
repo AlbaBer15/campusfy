@@ -1,0 +1,11 @@
+<article class="track">
+  <div class="info">
+    <strong>{{ title }}</strong>
+    <span class="muted"> — {{ artist }}</span>
+    <span class="time">{{ (durationSec/60) | number:'1.0-0' }} min</span>
+    <span *ngIf="liked"> · 💚</span>
+  </div>
+  <div class="actions">
+    <button (click)="add()">➕ Add</button>
+  </div>
+</article>

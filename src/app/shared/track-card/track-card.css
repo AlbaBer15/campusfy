@@ -1,0 +1,5 @@
+.track { display:flex; justify-content:space-between; align-items:center; padding:10px; border:1px solid #2a3242; border-radius:10px; background:#151a26; }
+.info { display:flex; gap:6px; align-items:center; flex-wrap:wrap; }
+.muted { color:#a6b0c3; }
+.time { color:#eaeef7; font-variant-numeric: tabular-nums; opacity:.9; }
+.actions button { padding:6px 10px; border-radius:8px; border:1px solid #2a3242; background:#0f1115; color:#eaeef7; cursor:pointer; }

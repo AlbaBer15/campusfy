@@ -12,7 +12,7 @@ import { NgFor, NgIf, NgClass } from '@angular/common';
 export class PlaylistsHome {
   title = 'Playlists';
   playlistName = 'Mi playlist';
-  coverUrl = 'assets/cover.jpg'; // opcional, para property binding a <img>
+  coverUrl = '\musical-notes.png'; // opcional, para property binding a <img>
 
   // Two-way binding y eventos
   newTrack = '';       // campo de entrada para añadir canciones

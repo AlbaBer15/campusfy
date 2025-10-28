@@ -28,6 +28,12 @@
   <p *ngIf="tracks.length === 0" class="muted">
     No hay canciones todavía. Añade la primera ☝️
   </p>
+  <p *ngIf="tracks.length === 0" class="empty-msg">
+  🎵 Tu playlist está vacía. ¡Añade tu primera canción!
+</p>
+<p *ngIf="tracks.length > 5" class="warning-msg">
+  ⚠️ Tienes demasiadas canciones, ¡quizá quieras crear otra playlist!
+</p>
 
   <!-- Listado (ngFor) + ngClass + botones (event binding) -->
   <ul class="list" *ngIf="tracks.length > 0">

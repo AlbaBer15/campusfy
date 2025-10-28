@@ -44,6 +44,10 @@ export class PlaylistsHome {
   removeTrack(index: number) {
     this.tracks.splice(index, 1);
   }
+  trackByFn(index: number, track: any): number {
+  return track.id;
+}
+
 
   // Filtro simple en plantilla (podrías mover esta lógica a un getter si prefieres)
 }

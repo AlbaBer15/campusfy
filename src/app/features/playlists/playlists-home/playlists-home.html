@@ -37,20 +37,21 @@
 
   <!-- Listado (ngFor) + ngClass + botones (event binding) -->
   <ul class="list" *ngIf="tracks.length > 0">
-    <li
-      class="row"
-      *ngFor="let t of tracks; let i = index"
-      [ngClass]="{ liked: t.liked, hidden: filter && !(t.title.toLowerCase().includes(filter.toLowerCase()) || t.artist.toLowerCase().includes(filter.toLowerCase())) }"
-    >
-      <div class="meta">
-        <strong>{{ t.title }}</strong>
-        <span class="muted">{{ t.artist }}</span>
-      </div>
+  <li
+    class="row"
+    *ngFor="let t of tracks; trackBy: trackByFn"
+    [ngClass]="{ liked: t.liked, hidden: filter && !(t.title.toLowerCase().includes(filter.toLowerCase()) || t.artist.toLowerCase().includes(filter.toLowerCase())) }"
+  >
+    <div class="meta">
+      <strong>{{ t.title }}</strong>
+      <span class="muted">{{ t.artist }}</span>
+    </div>
 
-      <div class="actions">
-        <button (click)="toggleLike(i)">{{ t.liked ? '💚 Unlike' : '🤍 Like' }}</button>
-        <button (click)="removeTrack(i)">🗑️ Quitar</button>
-      </div>
-    </li>
-  </ul>
+    <div class="actions">
+      <button (click)="toggleLike(t.id)">{{ t.liked ? '💚 Unlike' : '🤍 Like' }}</button>
+      <button (click)="removeTrack(t.id)">🗑️ Quitar</button>
+    </div>
+  </li>
+</ul>
+
 </section>

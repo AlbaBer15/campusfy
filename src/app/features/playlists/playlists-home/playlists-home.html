@@ -44,8 +44,7 @@
     [ngClass]="{ 'liked': t.liked }"
   >
     <div class="meta">
-      <strong>{{ t.title }}</strong>
-      <span class="muted">{{ t.artist }}</span>
+<strong>{{ t.title }} — {{ t.durationSec/60 | number:'1.0-0' }} min</strong>      <span class="muted">{{ t.artist }}</span>
     </div>
 
     <div class="actions">

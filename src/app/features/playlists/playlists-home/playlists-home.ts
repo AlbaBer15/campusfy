@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms'; // para [(ngModel)] en plantilla
 import { NgFor, NgIf, NgClass } from '@angular/common';
+import { DecimalPipe } from '@angular/common';
 
 @Component({
   selector: 'app-playlists-home',
   standalone: true,
-  imports: [FormsModule, NgFor, NgIf, NgClass],
+  imports: [FormsModule, NgFor, NgIf, NgClass, DecimalPipe],
   templateUrl: './playlists-home.html',
   styleUrl: './playlists-home.css'
 })

@@ -45,8 +45,11 @@
 >
 
     <div class="meta">
-<strong>{{ t.title }} — {{ t.durationSec | duration }}</strong>
-      <span class="muted">{{ t.artist }}</span>
+<strong>{{ t.title | titlecase }} — {{ t.duration | duration }}</strong>
+<span class="muted">{{ t.artist }}</span>
+<span class="muted">Añadido el: {{ t.added | date:'shortDate' }}</span>
+
+
     </div>
 
     <div class="actions">

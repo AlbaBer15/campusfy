@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { NgFor, NgIf, NgClass } from '@angular/common';
 import { DurationPipe } from '../../../shared/pipes/duration-pipe';
+import { TitleCasePipe, DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-playlists-home',
   standalone: true,
-  imports: [FormsModule, NgFor, NgIf, NgClass, DurationPipe],
+  imports: [FormsModule, NgFor, NgIf, NgClass, DurationPipe, TitleCasePipe, DatePipe],
   templateUrl: './playlists-home.html',
   styleUrl: './playlists-home.css'
 })
@@ -18,16 +19,24 @@ export class PlaylistsHome {
   newTrack = '';
   filter = '';
 
-  tracks = [
-    { title: 'City Lights', artist: 'Synth Academy', durationSec: 215, liked: false },
-    { title: 'Analog Dreams', artist: 'Synth Academy', durationSec: 198, liked: true },
-    { title: 'Rainy Window', artist: 'Lo-Fi Lab', durationSec: 241, liked: false }
-  ];
+ tracks = [
+  { id: 1, title: 'city lights', artist: 'Synth Academy', duration: 215, liked: true, added: new Date(2024, 4, 15) },
+  { id: 2, title: 'analog dreams', artist: 'Synth Academy', duration: 340, liked: false, added: new Date(2024, 4, 20) }
+];
+
 
   addTrack() {
     const t = this.newTrack.trim();
     if (!t) return;
-    this.tracks.push({ title: t, artist: 'Unknown', durationSec: 180, liked: false });
+   this.tracks.push({
+  id: this.tracks.length + 1,
+  title: t,
+  artist: 'Unknown',
+  duration: 180,
+  liked: false,
+  added: new Date()
+});
+
     this.newTrack = '';
   }
 
@@ -43,7 +52,8 @@ export class PlaylistsHome {
     this.tracks.splice(index, 1);
   }
 
-  trackByFn(index: number, track: any): number {
-    return index;
-  }
+trackByFn(index: number, track: any): number {
+  return track.id;
+}
+
 }
